@@ -26,7 +26,8 @@ public class LoginController {
         User u = userService.verify(user);
         if (u != null) {
             session.setAttribute(Constants.SESSION_KEY, u);
-            return ResponseFactory.success(u.getRole());
+            User re = userService.findById(u.getId());
+            return ResponseFactory.success(re);
         } else {
             return ResponseFactory.fail(Constants.REQUEST_FAIL, Constants.LOGIN_FAIL);
         }
