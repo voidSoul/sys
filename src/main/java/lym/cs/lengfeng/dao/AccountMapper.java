@@ -19,11 +19,11 @@ public interface AccountMapper {
 
     @Select("select user.truename, items.name, items.description, items.type, account.money, account.description, account.date from  account " +
             "left join items on account.item_id = items.id " +
-            "left join user on account.user = user.id " +
+            "left join user on account.user_id = user.id " +
             "where account.date between #{from} and #{to}")
     List<AccountResult> getTotalAccount(@Param("from") String from, @Param("to") String to);
 
-    @Insert("insert into account(money, description, date, item_id, user) values (#{ac.money}, #{ac.description}, #{ac.date}, #{ac.itemId}, #{ac.userId})")
+    @Insert("insert into account(money, description, date, item_id, user_id) values (#{ac.money}, #{ac.description}, #{ac.date}, #{ac.itemId}, #{ac.userId})")
     @Options(useGeneratedKeys = true, keyProperty = "ac.id")
     void addRecord(@Param("ac") Account account);
 
