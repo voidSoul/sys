@@ -45,7 +45,7 @@ CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `type` varchar(11) NOT NULL,
-  `detail` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `owner` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
