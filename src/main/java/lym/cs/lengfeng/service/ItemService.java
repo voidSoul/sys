@@ -48,4 +48,8 @@ public class ItemService {
         }
 
     }
+
+    public List<Item> getItemsByUid(int uid) {
+        return itemMapper.getItemsByUserId(uid);
+    }
 }

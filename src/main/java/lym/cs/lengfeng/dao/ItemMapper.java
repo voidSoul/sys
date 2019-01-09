@@ -25,8 +25,9 @@ public interface ItemMapper {
     @Options(useGeneratedKeys = true, keyProperty = "item.id")
     void insert(@Param("item") Item item);
 
-    @Select("select owner from item where id = #{id}")
+    @Select("select owner from items where id = #{id}")
     int getOwner(@Param("id") int id);
 
-
+    @Select("select * from items where owner = #{uid} or (select role from user where id = #{uid}) = 1")
+    List<Item> getItemsByUserId(@Param("uid") int id);
 }

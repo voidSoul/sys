@@ -30,7 +30,7 @@ public interface AccountMapper {
     @Delete("delete from account where id = #{id}")
     void deleteRecord(@Param("id") int accountId);
 
-    @Select("select * from account where id = #{id} and user_id = #{uid} or (select role from user where user.id = #{uid}) = 1")
+    @Select("select * from account where id = #{id} and user_id = #{uid} or (select role from user where user.id = #{uid}) = 1 limit 1")
     Account getRecord(@Param("id") int id, @Param("uid") int userId);
 
     @Update("update account set money = #{ac.money}, description = #{ac.description}, date = #{ac.date} where id = #{ac.id}")
