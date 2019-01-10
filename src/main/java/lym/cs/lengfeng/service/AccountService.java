@@ -42,7 +42,7 @@ public class AccountService {
     }
 
     public boolean addRecord(Account account) {
-        Item item = itemMapper.select(account.getUserId(), account.getItemId());
+        Item item = itemMapper.select(account.getItemId(), account.getUserId());
         if (item != null) {
             accountMapper.addRecord(account);
             return true;
@@ -54,7 +54,6 @@ public class AccountService {
     public List<Account> getRecordsOfOneItem(int itemId, int userId) {
         return accountMapper.getRecordsOfOneItem(itemId, userId);
     }
-
 
     public List<AccountResult> getSingleChartResult(int id, String from, String to) {
         return accountMapper.getSingleAccount(id, from, to);
